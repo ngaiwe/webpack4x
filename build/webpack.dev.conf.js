@@ -24,7 +24,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     clientLogLevel: 'warning', // 在开发者工具响应信息 noen|waring|error|info默认
     historyApiFallback: true, // 404响应页面 默认index.html
     hot: true, // 模块热替换
-    contentBase: false, // 是否启动指定获取相关静态目录信息 默认工作目录
+    contentBase: utils.resolve(`./${config.dev.assetsRoot}`), // 是否启动指定获取相关静态目录信息 默认工作目录
     compress: true, // 启动gzip压缩
     host: HOST || config.dev.host, // IP
     port: PORT || config.dev.port, // 端口
