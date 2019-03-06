@@ -1,7 +1,10 @@
+const os = require('os')
 const utils = require('./utils')
 const config = require('../config')
+const HappyPack = require('happypack')
 const vueLoaderConfig = require('./vue-loader.conf')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
 module.exports = {
   entry: {
@@ -29,7 +32,7 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: 'happypack/loader?id=happyBable',
         exclude: /(node_modules|bower_components)/,
         include: [utils.resolve('src'), utils.resolve('node_modules/webpack-dev-server/client')]
       },
@@ -61,6 +64,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new HappyPack({
+      id: 'happyBable',
+      loaders: ['babel-loader'],
+      threadPool: happyThreadPool,
+      verbose: true
+    })
   ]
 }
