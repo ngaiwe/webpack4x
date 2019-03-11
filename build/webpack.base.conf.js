@@ -1,12 +1,9 @@
-const os = require('os')
 const utils = require('./utils')
 const config = require('../config')
-const HappyPack = require('happypack')
 const vueLoaderConfig = require('./vue-loader.conf')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
-const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length })
 
-module.exports = {
+const baseWebpackConfig = {
   entry: {
     app: utils.resolve('src/main.js')
   },
@@ -65,11 +62,11 @@ module.exports = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    new HappyPack({
+    ...utils.happypack([{
       id: 'happyBable',
-      loaders: ['babel-loader'],
-      threadPool: happyThreadPool,
-      verbose: true
-    })
+      loaders: ['babel-loader']
+    }])
   ]
 }
+
+module.exports = baseWebpackConfig
