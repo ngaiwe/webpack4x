@@ -1,18 +1,23 @@
+const os = require('os')
 const utils = require('./utils')
 const config = require('../config')
+const HappyPack = require('happypack')
 const vueLoaderConfig = require('./vue-loader.conf')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const happyThreadPool = HappyPack.ThreadPool({
+  size: os.cpus().length
+})
 
-const baseWebpackConfig = {
+module.exports = {
   entry: {
     app: utils.resolve('src/main.js')
   },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath :
+      config.dev.assetsPublicPath
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -31,7 +36,10 @@ const baseWebpackConfig = {
         test: /\.js$/,
         loader: 'happypack/loader?id=happyBable',
         exclude: /(node_modules|bower_components)/,
-        include: [utils.resolve('src'), utils.resolve('node_modules/webpack-dev-server/client')]
+        include: [
+          utils.resolve('src'),
+          utils.resolve('node_modules/webpack-dev-server/client')
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -62,11 +70,11 @@ const baseWebpackConfig = {
   },
   plugins: [
     new VueLoaderPlugin(),
-    ...utils.happypack([{
+    new HappyPack({
       id: 'happyBable',
-      loaders: ['babel-loader']
-    }])
+      loaders: ['babel-loader'],
+      threadPool: happyThreadPool,
+      verbose: true
+    })
   ]
 }
-
-module.exports = baseWebpackConfig
