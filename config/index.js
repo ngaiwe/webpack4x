@@ -7,8 +7,7 @@ module.exports = {
     assetsPublicPath: '/', // 设置启动后访问路径前缀
     proxyTable: {}, // 代理
     // devserver 所需配置
-    host: 'localhost', // ip
-    port: 8080, // 端口
+    port: 8085, // 端口
     notifyOnErrors: true, // 是否显示消息提示信息
     // Source Maps
     devtool: 'cheap-module-eval-source-map',

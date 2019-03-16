@@ -31,7 +31,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     hot: true, // 模块热替换
     contentBase: config.build.assetsRoot, // 是否启动指定获取相关静态目录信息 默认工作目录
     compress: true, // 启动gzip压缩
-    host: HOST || config.dev.host, // IP
+    host: ip.address(), // IP
     port: PORT || config.dev.port, // 端口
     open: true, // 打开浏览器 --open 'Google Chrome' 打开google
     overlay: { // 是否全面显示警告和错误
