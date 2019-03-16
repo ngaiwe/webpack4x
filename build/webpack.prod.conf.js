@@ -39,7 +39,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         collapseWhitespace: true,
         removeAttributeQuotes: true
       },
-      chunksSortMode: 'manual' // chunk排序按照引用顺序
+      chunksSortMode: 'dependency' // chunk排序按照引用顺序
     }),
     // 生成模块id 根据相对路径 4位
     new webpack.HashedModuleIdsPlugin(),
