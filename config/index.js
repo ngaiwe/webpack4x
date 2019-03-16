@@ -7,6 +7,7 @@ module.exports = {
     assetsPublicPath: '/', // 设置启动后访问路径前缀
     proxyTable: {}, // 代理
     // devserver 所需配置
+    host: '', // ip 如果需要设置host 0.0.0.0
     port: 8085, // 端口
     notifyOnErrors: true, // 是否显示消息提示信息
     // Source Maps
