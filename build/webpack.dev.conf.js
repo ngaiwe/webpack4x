@@ -24,16 +24,18 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     clientLogLevel: 'warning', // 在开发者工具响应信息 noen|waring|error|info默认
     historyApiFallback: { // 404响应页面 默认index.html
-      rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
-      ],
+      rewrites: [{
+        from: /.*/,
+        to: path.posix.join(config.dev.assetsPublicPath, 'index.html')
+      }, ],
     },
     hot: true, // 模块热替换
     contentBase: config.build.assetsRoot, // 是否启动指定获取相关静态目录信息 默认工作目录
     compress: true, // 启动gzip压缩
-    host: HOST || ip.address(), // IP
+    host: HOST || config.dev.host, // IP
     port: PORT || config.dev.port, // 端口
     open: true, // 打开浏览器 --open 'Google Chrome' 打开google
+    openPage: 'evaluating', // 自动打开的页面
     overlay: { // 是否全面显示警告和错误
       warnings: false,
       errors: true
@@ -69,9 +71,9 @@ module.exports = new Promise((resolve, reject) => {
         compilationSuccessInfo: {
           messages: [`当前项目地址IP和端口号：http://${ip.address()}:${port}`],
         },
-        onErrors: config.dev.notifyOnErrors
-        ? utils.createNotifierCallback()
-        : undefined
+        onErrors: config.dev.notifyOnErrors ?
+          utils.createNotifierCallback() :
+          undefined
       }))
       resolve(devWebpackConfig)
     }

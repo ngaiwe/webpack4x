@@ -1,33 +1,24 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
+  <div class="ngaiwe">
+    <a href="www.ngaiwe.com">{{msg}}</a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "ngaiwe",
+  data() {
     return {
-      msg: 'HelloWorld'
-    }
+      msg: "weiran www.ngaiwe.com"
+    };
   }
-}
+};
 </script>
 
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 a {
+  font-size: 30px;
   color: #42b983;
+  font-weight: normal;
 }
 </style>

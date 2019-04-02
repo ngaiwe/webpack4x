@@ -16,11 +16,11 @@ cssLoaders = function (options) {
   const vueStyleLoader = {
     loader: 'vue-style-loader',
     options: {
-        sourceMap: options.sourceMap
+      sourceMap: options.sourceMap
     }
   }
   // 单独处理需要返回的loader格式
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     const loaders = [vueStyleLoader, cssLoader, postcssLoader]
     if (loader) {
       loaders.push({
@@ -39,7 +39,7 @@ cssLoaders = function (options) {
     less: generateLoaders('less')
   }
 }
-  
+
 // 返回rules所需要的所有css loader
 exports.styleLoaders = function (options) {
   const output = []
@@ -52,4 +52,3 @@ exports.styleLoaders = function (options) {
   })
   return output
 }
-  

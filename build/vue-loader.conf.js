@@ -2,7 +2,7 @@ const utils = require('./utils')
 
 module.exports = {
     // 对vue-loader添加缓存
-    cacheDirectory:  utils.resolve('./cache-loader'),
+    cacheDirectory: utils.resolve('./cache-loader'),
     cacheIdentifier: 'cache-loader:{version} {process.env.NODE_ENV}',
     // 强制必须组件含有name
     exposeFilename: true,

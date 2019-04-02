@@ -7,11 +7,17 @@ exports.resolve = (dir) => {
   return path.join(__dirname, '..', dir)
 }
 
+// argv
+exports.argv = () => {
+  return process.argv.find(argv => Object.keys(config).includes(argv))
+}
+
 // 处理url-loader 文件路径问题
 exports.assetsPath = function (_path) {
-  const assetsSubDirectory = process.env.NODE_ENV === 'production'
-    ? config.build.assetsSubDirectory
-    : config.dev.assetsSubDirectory
+  const assetsSubDirectory = process.env.NODE_ENV === 'production' ?
+    config.build.assetsSubDirectory :
+    config.dev.assetsSubDirectory
+  console.log(path.posix.join(assetsSubDirectory, _path))
   return path.posix.join(assetsSubDirectory, _path)
 }
 
