@@ -2,7 +2,9 @@ const presets = [
   [ // 按需加载
     '@babel/preset-env',
     {
-      "corejs": 2,
+      "targets": {
+        "corejs": 2,
+      },
       "modules": false,
       "useBuiltIns": 'usage'
     }
@@ -28,7 +30,7 @@ const plugins = [
       'loose': true
     }
   ],
-  '@babel/plugin-syntax-dynamic-import', // import语法
+  '@babel/plugin-syntax-dynamic-import',
   '@babel/plugin-proposal-function-sent', // generator
   '@babel/plugin-proposal-json-strings', // 转义变量中U+2028
   '@babel/plugin-syntax-import-meta', // meta标签

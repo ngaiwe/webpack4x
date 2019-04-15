@@ -75,7 +75,10 @@ module.exports = new Promise((resolve, reject) => {
           utils.createNotifierCallback() :
           undefined
       }))
-      resolve(devWebpackConfig)
+      // 处理端口冲突
+      resolve(merge(devWebpackConfig, {
+        devServer: {port}
+      }))
     }
   })
 })
