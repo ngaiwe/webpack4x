@@ -1,8 +1,8 @@
 {
-  "name": "webpack4x-cli",
-  "version": "1.2.0",
-  "description": "一款基于webpack4x版本的cli脚手架",
-  "author": "weiran",
+  "name": "{{name}}",
+  "version": "{{version}}",
+  "description": "{{description}}",
+  "author": "{{author}}",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --open 'Google Chrome' --inline --progress --config build/webpack.dev.conf.js",
