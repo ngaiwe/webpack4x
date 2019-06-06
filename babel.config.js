@@ -2,9 +2,7 @@ const presets = [
   [ // 按需加载
     '@babel/preset-env',
     {
-      "targets": {
-        "corejs": 2,
-      },
+      "corejs": 2,
       "modules": false,
       "useBuiltIns": 'usage'
     }

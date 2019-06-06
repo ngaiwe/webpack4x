@@ -6,10 +6,10 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history',
-  base: '/',
+  base: '/{{assetsPublicPath}}/',
   routes: [
     {
-      path: '/',
+      path: '/helloworld',
       name: 'HelloWorld',
       component: HelloWorld
     }

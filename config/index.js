@@ -4,12 +4,13 @@ module.exports = {
   dev: {
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '', // 设置启动后访问路径前缀
+    assetsPublicPath: '/{{assetsPublicPath}}/', // 设置启动后访问路径前缀
     proxyTable: {}, // 代理
     // devserver 所需配置
     host: '0.0.0.0', // 如果需要设置host localhost 0.0.0.0方便移动端手机调试
     port: 8080, // 端口
     notifyOnErrors: true, // 是否显示消息提示信息
+    openPage: '{{assetsPublicPath}}', // 自动打开页面
     // Source Maps
     devtool: 'cheap-module-eval-source-map',
   },
@@ -19,7 +20,7 @@ module.exports = {
     // 打包输出path 
     assetsRoot: path.resolve(__dirname, '../dist'), // 打包后的地址
     assetsSubDirectory: 'static', // 静态目录拷贝出的存放地址
-    assetsPublicPath: '', // 打包后的入口地址 html引入srcipt的src地址
+    assetsPublicPath: '/{{assetsPublicPath}}/', // 打包后的目录地址
     // 是否启用source map source类型
     productionSourceMap: true,
     devtool: '#source-map',
@@ -34,7 +35,7 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsPublicPath: '/{{assetsPublicPath}}/',
     productionSourceMap: true,
     devtool: '#source-map',
     productionGzip: true,
