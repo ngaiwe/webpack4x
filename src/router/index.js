@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import HelloWorld from '@/page/HelloWorld'
 
 Vue.use(Router)
 
@@ -9,7 +9,7 @@ export default new Router({
   base: '/{{assetsPublicPath}}/',
   routes: [
     {
-      path: '/helloworld',
+      path: '/',
       name: 'HelloWorld',
       component: HelloWorld
     }

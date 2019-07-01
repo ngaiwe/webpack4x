@@ -35,7 +35,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     host: HOST || config.dev.host, // IP
     port: PORT || config.dev.port, // 端口
     open: true, // 打开浏览器 --open 'Google Chrome' 打开google
-    openPage: config.dev.assetsPublicPath, // 自动打开的页面
+    openPage: config.dev.openPage, // 自动打开的页面
     overlay: { // 是否全面显示警告和错误
       warnings: false,
       errors: true
